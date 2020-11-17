@@ -1,6 +1,5 @@
 import random
 
-
 from employee_wage.EmployeeWageInfo import EmployeeWageInfo
 from employee_wage.IEmployeeWage import IEmployeeWage
 
@@ -11,6 +10,7 @@ class EmployeeWage(IEmployeeWage):
     FULL_DAY_HOURS = 8
     PART_TIME_HOURS = 4
     company_list = []
+    company_dictionary = {}
 
     '''
     :parameter :name of company
@@ -27,6 +27,15 @@ class EmployeeWage(IEmployeeWage):
         print(employee_wage_info)
         return employee_wage_info
 
+    '''
+    :parameter : 
+                employee_wage_info : object of employee wage info class
+    Name of company and its object is stored in a dictionary.
+    :returns :  total wage of respective company
+    
+    '''
+    def get_company(self, employee_wage_info):
+        return self.company_dictionary.get(employee_wage_info.name)
 
     '''
     Checking whether employee is present, part time or absent
@@ -64,6 +73,7 @@ class EmployeeWage(IEmployeeWage):
             working_days += 1
             working_hours += employee_working_hours
         print("Total wage of the company ", employee_wage_info.name, " in the month is ", total_wage)
+        self.company_dictionary[employee_wage_info.name] = total_wage
 
 
 '''
@@ -87,6 +97,8 @@ def main():
     employee_wage.add_company("dMart", 15, 95, 25)
     for _ in EmployeeWage.company_list:
         employee_wage.compute_wage(_)
+    company_name = input("Enter company name")
+    print(employee_wage.company_dictionary.get(company_name))  # finding total wage for the particular company
 
 
 '''
