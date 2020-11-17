@@ -17,3 +17,8 @@ class IEmployeeWage:
     @abstractmethod
     def addCompany(self, name, employee_wage_per_hour, maximum_working_hour, maximum_working_days):
         pass
+
+    # abstract method for returning respective company's total wage
+    @abstractmethod
+    def get_company(self, employee_wage_info):
+        pass
