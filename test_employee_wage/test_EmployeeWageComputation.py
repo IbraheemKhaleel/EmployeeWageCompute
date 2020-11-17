@@ -32,10 +32,12 @@ def test_employee_check():
 
 def test_given_company_list_should_calculate_total_employee_wage_for_each_company():
     employee_wage = EmployeeWage()
-    employee_wage.add_company("reliance", 20, 100, 20)
-    employee_wage.add_company("bigbazar", 25, 75, 15)
-    employee_wage.add_company("flipkart", 20, 60, 30)
-    employee_wage.add_company("dMart", 15, 95, 25)
+    reliance = employee_wage.add_company("reliance", 20, 100, 20)
+    bigbazar = employee_wage.add_company("bigbazar", 25, 75, 15)
+    flipkart = employee_wage.add_company("flipkart", 20, 60, 30)
+    dMart = employee_wage.add_company("dMart", 15, 95, 25)
     for _ in EmployeeWage.company_list:
         employee_wage.compute_wage(_)
-    assert True
+    print(employee_wage.company_dictionary)
+    assert employee_wage.get_company(bigbazar) == EmployeeWage.company_dictionary.get("bigbazar")
+
