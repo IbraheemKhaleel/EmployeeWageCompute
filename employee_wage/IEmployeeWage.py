@@ -13,5 +13,7 @@ class IEmployeeWage:
     def employee_check(self, attendance):
         pass
 
-
-
+    # abstract method for adding company is declared
+    @abstractmethod
+    def addCompany(self, name, employee_wage_per_hour, maximum_working_hour, maximum_working_days):
+        pass
