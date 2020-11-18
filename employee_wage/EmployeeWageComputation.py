@@ -45,12 +45,12 @@ class EmployeeWage(IEmployeeWage):
     :returns:   employee working hours based on random number 
     '''
 
-    def employee_check(self, attendance):
+    def employee_check(self, random_key):
         switcher = {
             self.IS_PRESENT: self.FULL_DAY_HOURS,
             self.IS_PART_TIME: self.PART_TIME_HOURS,
         }
-        return switcher.get(attendance, 0)
+        return switcher.get(random_key, 0)
 
     '''
     calculates daily wage and total wage of the employee
