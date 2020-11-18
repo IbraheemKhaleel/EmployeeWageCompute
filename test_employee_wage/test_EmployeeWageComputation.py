@@ -38,6 +38,5 @@ def test_given_company_list_should_calculate_total_employee_wage_for_each_compan
     dMart = employee_wage.add_company("dMart", 15, 95, 25)
     for _ in EmployeeWage.company_list:
         employee_wage.compute_wage(_)
-    print(employee_wage.company_dictionary)
     assert employee_wage.get_company(bigbazar) == EmployeeWage.company_dictionary.get("bigbazar")
 
