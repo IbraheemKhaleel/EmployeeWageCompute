@@ -3,7 +3,7 @@ from abc import ABC, abstractclassmethod, abstractmethod
 
 class IEmployeeWage:
 
-    # abstract method for compute wage method is declared
+    #  abstract method for compute wage method is declared
     @abstractmethod
     def compute_wage(self, employee_wage_info):
         pass
