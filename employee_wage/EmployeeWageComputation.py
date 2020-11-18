@@ -41,7 +41,7 @@ class EmployeeWage(IEmployeeWage):
         :param employee_wage_info:
         :return: total wage of respective company when user provided company name
         """
-        return self.company_dictionary.get(employee_wage_info.get_name)
+        return self.company_dictionary.get(employee_wage_info.get_name())
 
     def employee_check(self, random_key):
 
