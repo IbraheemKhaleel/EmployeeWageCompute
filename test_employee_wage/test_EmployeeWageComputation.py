@@ -11,7 +11,7 @@ def instance_of_main_class():
 
 def test_employee_wage_company_name(instance_of_main_class):
     company = instance_of_main_class.add_company("reliance", 20, 100, 20)
-    assert company.get_name() == "reliance"
+    assert company.get_name() == " reliance "
 
 
 def test_employee_wage_maximum_working_hours(instance_of_main_class):
