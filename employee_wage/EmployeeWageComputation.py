@@ -2,6 +2,7 @@ import random
 
 from employee_wage.EmployeeWageInfo import EmployeeWageInfo
 from employee_wage.IEmployeeWage import IEmployeeWage
+from employee_wage.ListIsEmptyException import ListIsEmptyException
 
 
 class EmployeeWage(IEmployeeWage):
@@ -31,10 +32,12 @@ class EmployeeWage(IEmployeeWage):
         try:
             employee_wage_info = EmployeeWageInfo(name, wage_per_hour, maximum_working_hours, maximum_working_days)
             self.company_list.append(employee_wage_info)
+            if len(self.company_list) == 0:
+                raise ListIsEmptyException('List is empty')
             print(employee_wage_info)
             return employee_wage_info
         except Exception as e:
-            print(e)
+            print("Invalid input", e)
 
     def get_company(self, employee_wage_info):
         """
@@ -59,7 +62,7 @@ class EmployeeWage(IEmployeeWage):
             }
             return switcher.get(random_key, 0)
         except Exception as e:
-            print(e)
+            print("Invalid input ", e)
 
     def compute_wage(self, employee_wage_info):
         """
@@ -73,7 +76,7 @@ class EmployeeWage(IEmployeeWage):
         daily_wage = 0
         employee_working_hours = 0
         try:
-            while working_days < employee_wage_info.get_maximum_working_days()\
+            while working_days < employee_wage_info.get_maximum_working_days() \
                     and working_hours < employee_wage_info.get_maximum_working_hours():
                 random_number = random.randint(0, 2)  # To obtain a random number between 0 and 3
                 employee_working_hours = self.employee_check(random_number)
@@ -84,7 +87,7 @@ class EmployeeWage(IEmployeeWage):
             print("Total wage of the company ", employee_wage_info.get_name(), " in the month is ", total_wage)
             self.company_dictionary[employee_wage_info.get_name()] = total_wage
         except Exception as e:
-            print(e)
+            print("Invalid input ", e)
 
 
 def main():
@@ -111,7 +114,7 @@ def main():
         company_name = input("Enter company name")
         print(employee_wage.company_dictionary.get(company_name))  # finding total wage for the particular company
     except Exception as e:
-        print(e)
+        print("Invalid input ", e)
 
 
 if __name__ == '__main__':
