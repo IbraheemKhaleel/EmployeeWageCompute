@@ -33,7 +33,7 @@ class EmployeeWage(IEmployeeWage):
             employee_wage_info = EmployeeWageInfo(name, wage_per_hour, maximum_working_hours, maximum_working_days)
             self.company_list.append(employee_wage_info)
             if len(self.company_list) == 0:
-                raise ListIsEmptyException('List is empty')
+                raise ListIsEmptyException(' List is empty ')
             print(employee_wage_info)
             return employee_wage_info
         except Exception as e:
